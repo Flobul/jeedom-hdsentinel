@@ -1,5 +1,7 @@
 {
     "plugins\/hdsentinel\/core\/ajax\/hdsentinel.ajax.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Aucune méthode correspondante": "Keine entsprechende Methode",
         "createCron Remote inconnu : ": "createCron Remote unbekannt :",
         "getLog Remote inconnu : ": "getLog Remote unbekannt :",
         "getLogDependancy Remote inconnu : ": "getLogDependancy Remote unbekannt :",
@@ -24,12 +26,12 @@
         "Création du cron distant pour synology ": "Erstellen des Remote-Crons für synology",
         "Création du cron distant échouée : ": "Erstellung des Remote-Cron-Jobs fehlgeschlagen: ",
         "Création du dossier des scripts": "Erstellen des Skript-Ordners",
+        "Description": "Beschreibung",
         "Diagnostic scripts distants : ": "Diagnose von Remote-Skripten: ",
         "Durée de vie estimée": "Geschätzte Lebensdauer",
         "Début création du cron distant": "Beginn Erstellung des Remote-Crons",
         "Début lancement du cron distant": "Start Start des entfernten Cron",
         "Décompression du dossier distant": "Entpacken des Remote-Ordners",
-        "Déscription": "Beschreibung",
         "Emplacement du disque": "Speicherort der Disk",
         "Envoi automatique des scripts impossible": "Automatischer Versand der Skripte nicht möglich",
         "Envoi de fichier ": "Datei senden",
@@ -78,6 +80,10 @@
         "plus de": "vorbei",
         "Écriture totale": "Vollständiges Schreiben"
     },
+    "plugins\/hdsentinel\/desktop\/js\/configuration.js": {
+        "Modification en cours...": "Änderung wird gerade vorgenommen...",
+        "Réussie": "Erfolgreich"
+    },
     "plugins\/hdsentinel\/desktop\/js\/hdsentinel.js": {
         "Activer": "Aktivieren",
         "Adresse MAC": "MAC-Adresse",
@@ -118,17 +124,38 @@
         "Version de HDSentinel installée": "Installierte Version von HDSentinel",
         "Version du système": "Systemversion"
     },
+    "plugins\/hdsentinel\/desktop\/js\/health.js": {
+        "Historique": "Chronik",
+        "Santé Hard Disk Sentinel": "Gesundheit Hard Disk Sentinel"
+    },
     "plugins\/hdsentinel\/desktop\/modal\/health.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
+        "Actifs": "Vermögenswerte",
         "Date de création": "Datum der Erstellung",
         "Dernière communication": "Letzte Mitteilung",
+        "Dernière mise à jour": "Letzte Aktualisierung",
+        "Diagnostic du plugin": "Plugin-Diagnose",
+        "Disques": "Festplatten",
         "Démarré depuis": "Gestartet seit",
         "Démarré depuis (s)": "Gestartet seit (s)",
-        "Historique": "Chronik",
         "IP": "IPs",
         "Module": "Modul",
         "Non": "Nicht",
+        "Rafraîchir": "Aktualisieren",
+        "Résumé de la santé Hard Disk Sentinel": "Zusammenfassung des Hard Disk Sentinel-Status",
         "SSH Manager": "SSH Manager",
-        "Version HDSentinel": "HDSentinel-Version"
+        "Sans erreur": "Fehlerfrei",
+        "Santé Hard Disk Sentinel": "Gesundheit Hard Disk Sentinel",
+        "Version HDSentinel": "HDSentinel-Version",
+        "activé(s) dans Jeedom": "in Jeedom aktiviert",
+        "hôte(s) configuré(s)": "konfigurierter(e) Host(s)",
+        "unités détectées": "erkannte Geräte",
+        "Équipements": "Ausstattung",
+        "État de santé, température et durée de fonctionnement de vos disques.": "Zustand, Temperatur und Betriebsdauer Ihrer Festplatten.",
+        "à vérifier": "zu überprüfen"
+    },
+    "plugins\/hdsentinel\/desktop\/modal\/page.php": {
+        "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff"
     },
     "plugins\/hdsentinel\/desktop\/php\/hdsentinel.php": {
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff",
@@ -203,25 +230,30 @@
         "401 - Accès non autorisé": "401 - Nicht autorisierter Zugriff"
     },
     "plugins\/hdsentinel\/plugin_info\/configuration.php": {
+        "Aucun équipement Hard Disk Sentinel": "Keine „Hard Disk Sentinel“-Geräte",
         "Auto-actualisation": "Selbstaktualisierung",
-        "Branche": "Zweig",
+        "Changelog": "Änderungsprotokoll",
+        "Choisissez le mode adapté au système distant lors de la configuration de chaque équipement.": "Wählen Sie bei der Konfiguration jedes Geräts den für das Remote-System geeigneten Modus aus.",
+        "Communauté": "Community",
+        "Configuration du plugin": "Plugin Konfiguration",
+        "Consultez les modes, versions et fréquences des équipements configurés.": "Rufen Sie die Betriebsmodi, Versionen und Frequenzen der konfigurierten Geräte ab.",
+        "Contrôlez la mise à jour automatique des installations Hard Disk Sentinel distantes.": "Steuern Sie die automatische Aktualisierung von Remote-Hard-Disk-Sentinel-Installationen.",
         "Dernière communication": "Letzte Mitteilung",
         "Distant SSH": "SSH-Fernzugriff",
-        "Général": "Allgemein",
+        "Documentation": "Dokumentation",
         "Hôte \/ IP": "Host \/ IP",
         "Installation manuelle": "Manuelle Installation",
         "Installer HD Sentinel sur tous": "HD Sentinel auf allen installieren",
         "Linux \/ Raspberry \/ Synology": "Linux \/ Raspberry \/ Synology",
-        "Lors d'une installation ou mise à jour du plugin, renvoie les scripts, réinstalle HD Sentinel et relance le cron sur les équipements distants compatibles.": "Bei der Installation oder Aktualisierung des Plugins werden die Skripte zurückgesetzt, HD Sentinel neu installiert und der Cron-Job auf den kompatiblen Remote-Geräten neu gestartet.",
+        "Lors d’une installation ou mise à jour du plugin, renvoie les scripts, réinstalle HD Sentinel et relance le cron sur les équipements distants compatibles.": "Bei der Installation oder Aktualisierung des Plugins werden die Skripte zurückgesetzt, HD Sentinel neu installiert und der Cron-Job auf den kompatiblen Remote-Geräten neu gestartet.",
         "Manuel": "Handbuch",
         "Mettre à jour les fichiers sur tous": "Aktualisieren Sie die Dateien auf allen",
         "Mise à jour automatique des équipements distants": "Automatische Aktualisierung von Remote-Geräten",
         "Mode": "Mode",
         "Modes de fonctionnement": "Betriebsarten",
         "Options du plugin": "Plugin-Optionen",
-        "Ordre recommandé pour un nouvel équipement distant : sauvegarder l'équipement, envoyer les fichiers, installer HD Sentinel, tester, puis lancer le cron. Consultez les logs de dépendances si l'installation reste bloquée.": "Empfohlene Vorgehensweise für ein neues Remote-Gerät: Gerät sichern, Dateien senden, HD Sentinel installieren, testen und anschließend den Cron-Job starten. Überprüfen Sie die Abhängigkeitsprotokolle, falls die Installation hängen bleibt.",
-        "Réussie": "Erfolgreich",
-        "Source": "Quelle",
+        "Ordre recommandé pour un nouvel équipement distant : sauvegarder l’équipement, envoyer les fichiers, installer HD Sentinel, tester, puis lancer le cron. Consultez les logs de dépendances si l’installation reste bloquée.": "Empfohlene Vorgehensweise bei einem neuen Remote-Gerät: Gerät sichern, Dateien senden, HD Sentinel installieren, testen und anschließend den Cron-Job starten. Überprüfen Sie die Abhängigkeitsprotokolle, falls die Installation hängen bleibt.",
+        "Retrouvez dans Jeedom les informations de vos disques suivis par Hard Disk Sentinel.": "In Jeedom finden Sie die Informationen zu Ihren Festplatten, die von Hard Disk Sentinel überwacht werden.",
         "Synology": "Synology",
         "Tout arrêter": "Alles beenden",
         "Tout arrêter et supprimer": "Alles anhalten und löschen",
@@ -230,13 +262,13 @@
         "Version HD Sentinel": "HD Sentinel-Version",
         "Windows": "Windows",
         "Windows XML": "Windows XML",
-        "cocher Windows dans l'équipement, renseigner l'adresse IP, le port XML du service HD Sentinel et le mot de passe si nécessaire.": "Wählen Sie unter „Geräte“ die Option „Windows“ aus, geben Sie die IP-Adresse, den XML-Port des HD Sentinel-Dienstes und gegebenenfalls das Passwort ein.",
-        "le script détecte DSM via synoinfo.conf et mappe l'architecture Synology vers le binaire HD Sentinel compatible lorsque celui-ci existe. Les architectures PowerPC ne sont pas supportées par HD Sentinel Linux.": "Das Skript erkennt DSM über die Datei „synoinfo.conf“ und ordnet die Synology-Architektur der entsprechenden HD Sentinel-Binärdatei zu, sofern diese vorhanden ist. PowerPC-Architekturen werden von HD Sentinel Linux nicht unterstützt.",
+        "cocher Windows dans l’équipement, renseigner l’adresse IP, le port XML du service HD Sentinel et le mot de passe si nécessaire.": "Wählen Sie unter „Geräte“ die Option „Windows“ aus, geben Sie die IP-Adresse, den XML-Port des HD Sentinel-Dienstes und gegebenenfalls das Passwort ein.",
+        "le script détecte DSM via synoinfo.conf et mappe l’architecture Synology vers le binaire HD Sentinel compatible lorsque celui-ci existe. Les architectures PowerPC ne sont pas supportées par HD Sentinel Linux.": "Das Skript erkennt DSM über die Datei „synoinfo.conf“ und ordnet die Synology-Architektur der entsprechenden HD Sentinel-Binärdatei zu, sofern diese vorhanden ist. PowerPC-Architekturen werden von HD Sentinel Linux nicht unterstützt.",
         "renseigner un hôte SSH Manager, envoyer les fichiers, installer HD Sentinel, puis lancer le cron distant.": "einen SSH-Manager-Host angeben, die Dateien senden, HD Sentinel installieren und anschließend den Remote-Cron-Job starten.",
         "À activer seulement si les accès SSH\/sudo sont fonctionnels sur les hôtes distants.": "Nur aktivieren, wenn der SSH-\/sudo-Zugriff auf den Remote-Hosts funktioniert.",
         "Équipement": "Ausstattung",
         "Équipements distants": "Fernbedienbare Geräte",
-        "à utiliser si HD Sentinel est déjà installé et que vous souhaitez uniquement interroger l'équipement depuis Jeedom.": "Zu verwenden, wenn HD Sentinel bereits installiert ist und Sie die Geräte lediglich über Jeedom abfragen möchten."
+        "à utiliser si HD Sentinel est déjà installé et que vous souhaitez uniquement interroger l’équipement depuis Jeedom.": "Zu verwenden, wenn HD Sentinel bereits installiert ist und Sie die Geräte lediglich über Jeedom abfragen möchten."
     },
     "plugins\/hdsentinel\/plugin_info\/install.php": {
         "=> Cron supprimé ": "=> Cron gelöscht",
@@ -247,6 +279,7 @@
         "=> Fin mise à jour des scripts": "=> Ende Aktualisierung der Skripte",
         "=> Fin mise à jour des scripts ": "=> Ende Aktualisierung der Skripte",
         "=> Lancement cron ": "=> Cron-Start",
+        "Cette mise à jour peut durer un certain temps : elle va arrêter puis supprimer les tâches cron actuelles sur les appareils distants, renvoyer les scripts, installer les paquets puis relancer les tâches cron.": "Dieses Update kann eine Weile dauern: Es wird die aktuellen Cron-Aufgaben auf den Remote-Geräten zunächst anhalten und anschließend löschen, die Skripte erneut senden, die Pakete installieren und schließlich die Cron-Aufgaben neu starten.",
         "Début purge des logs vides ": "Beginn Bereinigung leerer Logs",
         "Logs vides supprimé pour ": "Leere Logs gelöscht für"
     }

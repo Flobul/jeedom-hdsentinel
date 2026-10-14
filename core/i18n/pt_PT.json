@@ -1,5 +1,7 @@
 {
     "plugins\/hdsentinel\/core\/ajax\/hdsentinel.ajax.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Aucune méthode correspondante": "Não há nenhum método correspondente",
         "createCron Remote inconnu : ": "createCron Remoto desconhecido :",
         "getLog Remote inconnu : ": "getLog Remoto desconhecido :",
         "getLogDependancy Remote inconnu : ": "getLogDependancy Remoto desconhecido :",
@@ -24,12 +26,12 @@
         "Création du cron distant pour synology ": "Criação remota de cron para synology",
         "Création du cron distant échouée : ": "Falha na criação do cron remoto: ",
         "Création du dossier des scripts": "Criar a pasta de scripts",
+        "Description": "Descrição",
         "Diagnostic scripts distants : ": "Scripts de diagnóstico remoto: ",
         "Durée de vie estimée": "Vida útil estimada",
         "Début création du cron distant": "Iniciar a criação remota do cron",
         "Début lancement du cron distant": "Iniciar cron remoto",
         "Décompression du dossier distant": "Descompactar a pasta remota",
-        "Déscription": "Descrição",
         "Emplacement du disque": "Localização do disco",
         "Envoi automatique des scripts impossible": "Não é possível enviar os scripts automaticamente",
         "Envoi de fichier ": "Enviar um ficheiro",
@@ -78,6 +80,10 @@
         "plus de": "mais de",
         "Écriture totale": "Escrita total"
     },
+    "plugins\/hdsentinel\/desktop\/js\/configuration.js": {
+        "Modification en cours...": "Alteração em curso...",
+        "Réussie": "Bem-sucedido"
+    },
     "plugins\/hdsentinel\/desktop\/js\/hdsentinel.js": {
         "Activer": "Ativar",
         "Adresse MAC": "Endereço MAC",
@@ -118,17 +124,38 @@
         "Version de HDSentinel installée": "Versão do HDSentinel instalada",
         "Version du système": "Versão do sistema"
     },
+    "plugins\/hdsentinel\/desktop\/js\/health.js": {
+        "Historique": "Histórico",
+        "Santé Hard Disk Sentinel": "Health Hard Disk Sentinel"
+    },
     "plugins\/hdsentinel\/desktop\/modal\/health.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado",
+        "Actifs": "Ativos",
         "Date de création": "Data de criação",
         "Dernière communication": "última mensagem",
+        "Dernière mise à jour": "Última atualização",
+        "Diagnostic du plugin": "Diagnóstico do plugin",
+        "Disques": "Discos",
         "Démarré depuis": "Iniciado a partir de",
         "Démarré depuis (s)": "Iniciado desde (s)",
-        "Historique": "Histórico",
         "IP": "IPs",
         "Module": "Módulo",
         "Non": "Não",
+        "Rafraîchir": "Recarregar",
+        "Résumé de la santé Hard Disk Sentinel": "Resumo do estado do Hard Disk Sentinel",
         "SSH Manager": "Gestor SSH",
-        "Version HDSentinel": "Versão HDSentinel"
+        "Sans erreur": "Sem erros",
+        "Santé Hard Disk Sentinel": "Health Hard Disk Sentinel",
+        "Version HDSentinel": "Versão HDSentinel",
+        "activé(s) dans Jeedom": "ativado(s) no Jeedom",
+        "hôte(s) configuré(s)": "host(s) configurado(s)",
+        "unités détectées": "unidades detetadas",
+        "Équipements": "Equipamentos",
+        "État de santé, température et durée de fonctionnement de vos disques.": "Estado de saúde, temperatura e tempo de funcionamento dos seus discos.",
+        "à vérifier": "a verificar"
+    },
+    "plugins\/hdsentinel\/desktop\/modal\/page.php": {
+        "401 - Accès non autorisé": "401 - Acesso não autorizado"
     },
     "plugins\/hdsentinel\/desktop\/php\/hdsentinel.php": {
         "401 - Accès non autorisé": "401 - Acesso não autorizado",
@@ -203,25 +230,30 @@
         "401 - Accès non autorisé": "401 - Acesso não autorizado"
     },
     "plugins\/hdsentinel\/plugin_info\/configuration.php": {
+        "Aucun équipement Hard Disk Sentinel": "Não há nenhum equipamento Hard Disk Sentinel",
         "Auto-actualisation": "Atualização automática",
-        "Branche": "Caminho",
+        "Changelog": "Registo de alterações",
+        "Choisissez le mode adapté au système distant lors de la configuration de chaque équipement.": "Escolha o modo adequado ao sistema remoto ao configurar cada equipamento.",
+        "Communauté": "Comunidade",
+        "Configuration du plugin": "Configuração de plugin",
+        "Consultez les modes, versions et fréquences des équipements configurés.": "Consulte os modos, versões e frequências dos equipamentos configurados.",
+        "Contrôlez la mise à jour automatique des installations Hard Disk Sentinel distantes.": "Controle a atualização automática das instalações remotas do Hard Disk Sentinel.",
         "Dernière communication": "última mensagem",
         "Distant SSH": "SSH remoto",
-        "Général": "Geral",
+        "Documentation": "Documentação",
         "Hôte \/ IP": "Host \/ IP",
         "Installation manuelle": "Instalação manual",
         "Installer HD Sentinel sur tous": "Instalar o HD Sentinel em todos os",
         "Linux \/ Raspberry \/ Synology": "Linux \/ Raspberry \/ Synology",
-        "Lors d'une installation ou mise à jour du plugin, renvoie les scripts, réinstalle HD Sentinel et relance le cron sur les équipements distants compatibles.": "Durante a instalação ou atualização do plugin, reenvia os scripts, reinstala o HD Sentinel e reinicia o cron nos equipamentos remotos compatíveis.",
+        "Lors d’une installation ou mise à jour du plugin, renvoie les scripts, réinstalle HD Sentinel et relance le cron sur les équipements distants compatibles.": "Durante a instalação ou atualização do plugin, reenvia os scripts, reinstala o HD Sentinel e reinicia o cron nos equipamentos remotos compatíveis.",
         "Manuel": "Manual",
         "Mettre à jour les fichiers sur tous": "Atualizar ficheiros em todos os",
         "Mise à jour automatique des équipements distants": "Atualização automática de equipamentos remotos",
         "Mode": "Modo",
         "Modes de fonctionnement": "Modos de funcionamento",
         "Options du plugin": "Opções do plugin",
-        "Ordre recommandé pour un nouvel équipement distant : sauvegarder l'équipement, envoyer les fichiers, installer HD Sentinel, tester, puis lancer le cron. Consultez les logs de dépendances si l'installation reste bloquée.": "Ordem recomendada para um novo equipamento remoto: fazer uma cópia de segurança do equipamento, enviar os ficheiros, instalar o HD Sentinel, testar e, por fim, iniciar o cron. Consulte os registos de dependências se a instalação ficar bloqueada.",
-        "Réussie": "Bem-sucedido",
-        "Source": "Fonte",
+        "Ordre recommandé pour un nouvel équipement distant : sauvegarder l’équipement, envoyer les fichiers, installer HD Sentinel, tester, puis lancer le cron. Consultez les logs de dépendances si l’installation reste bloquée.": "Ordem recomendada para um novo equipamento remoto: fazer uma cópia de segurança do equipamento, enviar os ficheiros, instalar o HD Sentinel, testar e, por fim, iniciar o cron. Consulte os registos de dependências se a instalação ficar bloqueada.",
+        "Retrouvez dans Jeedom les informations de vos disques suivis par Hard Disk Sentinel.": "Consulte no Jeedom as informações dos seus discos monitorizados pelo Hard Disk Sentinel.",
         "Synology": "Synology",
         "Tout arrêter": "Parar tudo",
         "Tout arrêter et supprimer": "Parar e apagar tudo",
@@ -230,13 +262,13 @@
         "Version HD Sentinel": "Versão HD Sentinel",
         "Windows": "Janelas",
         "Windows XML": "Windows XML",
-        "cocher Windows dans l'équipement, renseigner l'adresse IP, le port XML du service HD Sentinel et le mot de passe si nécessaire.": "Selecione «Windows» na secção «Equipamento», introduza o endereço IP, a porta XML do serviço HD Sentinel e a palavra-passe, se necessário.",
-        "le script détecte DSM via synoinfo.conf et mappe l'architecture Synology vers le binaire HD Sentinel compatible lorsque celui-ci existe. Les architectures PowerPC ne sont pas supportées par HD Sentinel Linux.": "O script deteta o DSM através do ficheiro synoinfo.conf e mapeia a arquitetura Synology para o binário compatível com o HD Sentinel, quando este existir. As arquiteturas PowerPC não são suportadas pelo HD Sentinel para Linux.",
+        "cocher Windows dans l’équipement, renseigner l’adresse IP, le port XML du service HD Sentinel et le mot de passe si nécessaire.": "Selecione «Windows» na secção «Equipamento», introduza o endereço IP, a porta XML do serviço HD Sentinel e a palavra-passe, se necessário.",
+        "le script détecte DSM via synoinfo.conf et mappe l’architecture Synology vers le binaire HD Sentinel compatible lorsque celui-ci existe. Les architectures PowerPC ne sont pas supportées par HD Sentinel Linux.": "O script deteta o DSM através do ficheiro synoinfo.conf e mapeia a arquitetura da Synology para o binário compatível com o HD Sentinel, quando este existir. As arquiteturas PowerPC não são suportadas pelo HD Sentinel para Linux.",
         "renseigner un hôte SSH Manager, envoyer les fichiers, installer HD Sentinel, puis lancer le cron distant.": "introduzir um host no SSH Manager, enviar os ficheiros, instalar o HD Sentinel e, em seguida, executar o cron remoto.",
         "À activer seulement si les accès SSH\/sudo sont fonctionnels sur les hôtes distants.": "Ativar apenas se os acessos SSH\/sudo estiverem a funcionar nos anfitriões remotos.",
         "Équipement": "Equipamento",
         "Équipements distants": "Equipamentos remotos",
-        "à utiliser si HD Sentinel est déjà installé et que vous souhaitez uniquement interroger l'équipement depuis Jeedom.": "a utilizar se o HD Sentinel já estiver instalado e pretender apenas consultar o equipamento a partir do Jeedom."
+        "à utiliser si HD Sentinel est déjà installé et que vous souhaitez uniquement interroger l’équipement depuis Jeedom.": "a utilizar se o HD Sentinel já estiver instalado e pretender apenas consultar o equipamento a partir do Jeedom."
     },
     "plugins\/hdsentinel\/plugin_info\/install.php": {
         "=> Cron supprimé ": "=> Cron eliminado",
@@ -247,6 +279,7 @@
         "=> Fin mise à jour des scripts": "=> Fim da atualização do script",
         "=> Fin mise à jour des scripts ": "=> Fim da atualização do script",
         "=> Lancement cron ": "=> Iniciar cron",
+        "Cette mise à jour peut durer un certain temps : elle va arrêter puis supprimer les tâches cron actuelles sur les appareils distants, renvoyer les scripts, installer les paquets puis relancer les tâches cron.": "Esta atualização pode demorar algum tempo: irá interromper e, em seguida, eliminar as tarefas cron atuais nos dispositivos remotos, reenviar os scripts, instalar os pacotes e, por fim, reiniciar as tarefas cron.",
         "Début purge des logs vides ": "Começar a limpar registos vazios",
         "Logs vides supprimé pour ": "Registos vazios eliminados para"
     }
