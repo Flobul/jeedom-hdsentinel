@@ -1,6 +1,6 @@
 <?php
 if (!isConnect('admin')) {
-	throw new Exception('{{401 - Accès non autorisé}}');
+	throw new Exception(__('401 - Accès non autorisé', __FILE__));
 }
 
 $plugin = plugin::byId('hdsentinel');
@@ -8,26 +8,11 @@ sendVarToJS('eqType', $plugin->getId());
 $eqLogics = eqLogic::byType($plugin->getId());
 
 ?>
-<style>
-  .classinfoEqlogic {
-      border-radius:10px;
-      padding:1px 3px;
-      font-size:.75em;
-      font-weight:900;
-      position:absolute;
-      margin-left:57px;
-      color:white;
-  }
-
-  #bt_hdsentinelDocumentation {
-      font-size: 2.3rem;
-      color: mediumslateblue;
-  }
-</style>
+<?php include_file('desktop', 'hdsentinel', 'css', 'hdsentinel'); ?>
 
 <div class="row row-overflow" id="div_hdsentinel">
 	<div class="col-xs-12 eqLogicThumbnailDisplay">
-		<legend><i class="fa fa-cog"></i> {{Gestion}}</legend>
+		<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
 		<div class="eqLogicThumbnailContainer">
 			<div class="cursor eqLogicAction logoPrimary" data-action="add">
 				<i class="fas fa-plus-circle"></i>
@@ -42,7 +27,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 			</div>
 
 			<div class="cursor logoSecondary" id="bt_healthSentinel">
-				<i class="fas fa-medkit"></i>
+				<i class="fas fa-heartbeat"></i>
 				<br>
 				<span>{{Santé}}</span>
 			</div>

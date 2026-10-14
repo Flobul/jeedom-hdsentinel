@@ -1,0 +1,32 @@
+/**
+ * CSS du plugin hdsentinel — Desktop (page d accueil).
+ *
+ * Reference : localhomeconnect (desktop/css/localhomeconnect.css)
+ * Styles pour la page d accueil du plugin.
+ */
+.classinfoEqlogic {
+    border-radius: 10px;
+    padding: 1px 3px;
+    font-size: .75em;
+    font-weight: 900;
+    position: absolute;
+    margin-left: 57px;
+    color: white;
+}
+#bt_hdsentinelDocumentation {
+    font-size: 2.3rem;
+    color: mediumslateblue;
+}
+.eqLogicThumbnailDisplay .panel-title {
+    background: #1987ea;
+    border-radius: 10px;
+}
+[data-theme="core2019_Dark"] .eqLogicThumbnailDisplay .panel-title {
+    background: #1987ea;
+}
+.eqLogicDisplayCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+[data-theme="core2019_Dark"] .eqLogicDisplayCard:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}

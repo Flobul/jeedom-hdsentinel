@@ -1,0 +1,30 @@
+/**
+ * CSS du plugin hdsentinel — Page disques (modal).
+ *
+ * Reference : localhomeconnect (desktop/css/health.css)
+ * https://github.com/DomoFlo1/jeedom-localhomeconnect
+ *
+ * Styles extraits du modal page.php.
+ */
+.tab-pane > table > tbody > tr > td:nth-child(2) {
+    display: none;
+}
+[data-theme="core2019_Dark"] .grayhead {
+    background: #343434 !important;
+    color: #000 !important;
+}
+[data-theme="core2019_Dark"] .colorhead {
+    background: #6b6b6b !important
+}
+[data-theme="core2019_Dark"] .xboxcontent,
+[data-theme="core2019_Dark"] .xb2,
+[data-theme="core2019_Dark"] .xb3,
+[data-theme="core2019_Dark"] .xb4 {
+    background: #999 !important;
+}
+[data-theme="core2019_Dark"] TD {
+    color: #c1c1c1 !important;
+}
+[data-theme="core2019_Dark"] .tab-pane > table > tbody > tr > td:nth-child(2) {
+    display: none;
+}

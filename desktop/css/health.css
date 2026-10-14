@@ -1,0 +1,170 @@
+/**
+ * Hard Disk Sentinel — modal Santé.
+ */
+#hdsentinelHealth {
+    --hdsentinel-health-accent: #168db5;
+    --hdsentinel-health-border: rgba(127, 127, 127, 0.22);
+    --hdsentinel-health-surface: rgba(255, 255, 255, 0.86);
+    box-sizing: border-box;
+    width: min(100%, 1320px);
+    margin: 0 auto;
+    padding: 10px 14px 24px;
+}
+
+#hdsentinelHealth #hdsentinel-health-banner.hdsentinel-health-hero {
+    max-width: none;
+}
+
+#hdsentinelHealth .hdsentinel-health-summary {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+#hdsentinelHealth .hdsentinel-health-summary-card {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 0;
+    padding: 14px;
+    border: 1px solid var(--hdsentinel-health-border);
+    border-radius: 12px;
+    background: var(--hdsentinel-health-surface);
+    box-shadow: 0 4px 13px rgba(30, 55, 70, 0.06);
+}
+
+#hdsentinelHealth .hdsentinel-health-summary-icon {
+    flex: 0 0 46px;
+    width: 46px;
+    height: 46px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    background: rgba(22, 141, 181, 0.13);
+    color: var(--hdsentinel-health-accent);
+    font-size: 20px;
+}
+
+#hdsentinelHealth .hdsentinel-health-summary-card > div {
+    min-width: 0;
+}
+
+#hdsentinelHealth .hdsentinel-health-summary-card span:not(.hdsentinel-health-summary-icon),
+#hdsentinelHealth .hdsentinel-health-summary-card small {
+    display: block;
+    overflow: hidden;
+    color: rgba(45, 55, 65, 0.67);
+    font-size: 11px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+#hdsentinelHealth .hdsentinel-health-summary-card strong {
+    display: block;
+    margin: 2px 0;
+    font-size: 21px;
+    line-height: 1.05;
+}
+
+#hdsentinelHealth .hdsentinel-health-alert:empty {
+    display: none;
+}
+
+#hdsentinelHealth #accordionHdsentinel {
+    margin-bottom: 16px;
+}
+
+#hdsentinelHealth #accordionHdsentinel .panel {
+    overflow: hidden;
+    margin-bottom: 10px;
+    border: 1px solid var(--hdsentinel-health-border);
+    border-radius: 12px;
+    background: var(--hdsentinel-health-surface);
+    box-shadow: none;
+}
+
+#hdsentinelHealth #accordionHdsentinel .panel-heading {
+    padding: 12px 15px;
+    border-bottom: 1px solid var(--hdsentinel-health-border);
+    background: linear-gradient(90deg, rgba(22, 141, 181, 0.11), rgba(22, 141, 181, 0.02));
+}
+
+#hdsentinelHealth #accordionHdsentinel .panel-title {
+    font-size: 14px;
+}
+
+#hdsentinelHealth #accordionHdsentinel .panel-body {
+    padding: 14px;
+}
+
+#hdsentinelHealth .hdsentinel-health-disk {
+    min-height: 300px;
+    padding: 12px;
+    border-right: 1px solid var(--hdsentinel-health-border);
+}
+
+#hdsentinelHealth .hdsentinel-health-disk > div {
+    min-height: 28px;
+    padding: 4px 0;
+    border-bottom: 1px solid rgba(127, 127, 127, 0.12);
+}
+
+#hdsentinelHealth .hdsentinel-health-description {
+    max-width: 58%;
+    white-space: break-spaces;
+    word-break: break-word;
+}
+
+#hdsentinelHealth #table_healthHdsentinel {
+    overflow: hidden;
+    margin-bottom: 0;
+    border: 1px solid var(--hdsentinel-health-border);
+    border-radius: 12px;
+    background: var(--hdsentinel-health-surface);
+}
+
+#hdsentinelHealth #table_healthHdsentinel th,
+#hdsentinelHealth #table_healthHdsentinel td {
+    vertical-align: middle;
+    font-size: 12px;
+}
+
+#hdsentinelHealth .label {
+    font-size: 11px;
+}
+
+[data-theme="core2019_Dark"] #hdsentinelHealth {
+    --hdsentinel-health-border: rgba(255, 255, 255, 0.13);
+    --hdsentinel-health-surface: rgba(38, 43, 47, 0.9);
+}
+
+[data-theme="core2019_Dark"] #hdsentinelHealth .hdsentinel-health-summary-card span:not(.hdsentinel-health-summary-icon),
+[data-theme="core2019_Dark"] #hdsentinelHealth .hdsentinel-health-summary-card small {
+    color: rgba(255, 255, 255, 0.65);
+}
+
+@media (max-width: 1000px) {
+    #hdsentinelHealth .hdsentinel-health-summary {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 767px) {
+    #hdsentinelHealth .hdsentinel-health-disk {
+        min-height: 0;
+        border-right: 0;
+        border-bottom: 1px solid var(--hdsentinel-health-border);
+    }
+}
+
+@media (max-width: 560px) {
+    #hdsentinelHealth {
+        padding: 6px;
+    }
+
+    #hdsentinelHealth .hdsentinel-health-summary {
+        grid-template-columns: 1fr;
+    }
+}

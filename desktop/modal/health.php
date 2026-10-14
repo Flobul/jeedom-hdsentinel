@@ -16,7 +16,7 @@
  */
 
 if (!isConnect('admin')) {
-	throw new Exception('401 Unauthorized');
+	throw new Exception(__('401 - Accès non autorisé', __FILE__));
 }
 
 function updateValue($_cmd) {
@@ -56,21 +56,66 @@ function updateValue($_cmd) {
 }
 
 $eqLogics = hdsentinel::byType('hdsentinel');
+$enabledCount = 0;
+$healthyCount = 0;
+$diskCount = 0;
+foreach ($eqLogics as $healthEqLogic) {
+    if ($healthEqLogic->getIsEnable()) {
+        $enabledCount++;
+        if ($healthEqLogic->getStatus('state') !== 'nok') {
+            $healthyCount++;
+        }
+    }
+    $diskCount += (int) $healthEqLogic->getNbDisksByEqLogic();
+}
 ?>
-<div id='div_hdsentinelAlert' style="display: none;"></div>
+<?php include_file('desktop', 'plugin-banner', 'css', 'hdsentinel'); ?>
+<?php include_file('desktop', 'health', 'css', 'hdsentinel'); ?>
+
+<div id="hdsentinelHealth">
+    <header id="hdsentinel-health-banner" class="hdsentinel-health-hero">
+        <div class="hdsentinel-health-hero-icon"><i class="fas fa-heartbeat"></i></div>
+        <div class="hdsentinel-health-hero-copy">
+            <span class="hdsentinel-health-eyebrow">{{Diagnostic du plugin}}</span>
+            <h2>{{Santé Hard Disk Sentinel}}</h2>
+            <p>{{État de santé, température et durée de fonctionnement de vos disques.}}</p>
+        </div>
+        <button type="button" class="btn hdsentinel-health-refresh" id="bt_refreshHealth_hdsentinel"><i class="fas fa-sync-alt"></i> {{Rafraîchir}}</button>
+    </header>
+
+    <section class="hdsentinel-health-summary" aria-label="{{Résumé de la santé Hard Disk Sentinel}}">
+        <article class="hdsentinel-health-summary-card">
+            <span class="hdsentinel-health-summary-icon"><i class="fas fa-server"></i></span>
+            <div><span>{{Équipements}}</span><strong><?php echo count($eqLogics); ?></strong><small>{{hôte(s) configuré(s)}}</small></div>
+        </article>
+        <article class="hdsentinel-health-summary-card">
+            <span class="hdsentinel-health-summary-icon"><i class="fas fa-power-off"></i></span>
+            <div><span>{{Actifs}}</span><strong><?php echo (int) $enabledCount; ?></strong><small>{{activé(s) dans Jeedom}}</small></div>
+        </article>
+        <article class="hdsentinel-health-summary-card">
+            <span class="hdsentinel-health-summary-icon"><i class="fas fa-check-circle"></i></span>
+            <div><span>{{Sans erreur}}</span><strong><?php echo (int) $healthyCount; ?></strong><small><?php echo max(0, $enabledCount - $healthyCount); ?> {{à vérifier}}</small></div>
+        </article>
+        <article class="hdsentinel-health-summary-card">
+            <span class="hdsentinel-health-summary-icon"><i class="fas fa-hdd"></i></span>
+            <div><span>{{Disques}}</span><strong><?php echo (int) $diskCount; ?></strong><small>{{unités détectées}}</small></div>
+        </article>
+    </section>
+
+<div id='div_hdsentinelAlert' class="hdsentinel-health-alert"></div>
 <div class="panel-group" id="accordionHdsentinel">
     <?php
     foreach ($eqLogics as $eqLogic) {
         $cmds = $eqLogic->getCmd();
         $nbDisks = $eqLogic->getNbDisksByEqLogic();
-        $opacity = ($eqLogic->getIsEnable()) ? '' : ' style="opacity: 0.4;';
+        $opacity = ($eqLogic->getIsEnable()) ? '' : ' style="opacity: 0.4;"';
     ?>
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">
                     <?php
                     echo '<a class="accordion-toggle" data-toggle="collapse" data-parent="" href="#node_' . $eqLogic->getId() . '"' . $opacity . '>';
-                    echo $eqLogic->getHumanName(true) . ' - <span class="label label-info">' . $eqLogic->getConfiguration('OS_Version') . '</span>  - <span class="label label-info">' . $eqLogic->getConfiguration('Installed_version') . '</span>  - <span class="label label-info">Dernière mise à jour ' . $eqLogic->getConfiguration('Current_Date_And_Time') . '</span>';
+                    echo $eqLogic->getHumanName(true) . ' - <span class="label label-info">' . $eqLogic->getConfiguration('OS_Version') . '</span>  - <span class="label label-info">' . $eqLogic->getConfiguration('Installed_version') . '</span>  - <span class="label label-info">' . __('Dernière mise à jour', __FILE__) . ' ' . $eqLogic->getConfiguration('Current_Date_And_Time') . '</span>';
                     echo '</a>';
                     ?>
                 </h3>
@@ -82,7 +127,7 @@ $eqLogics = hdsentinel::byType('hdsentinel');
                 for($i=0 ; $i < $nbDisks; $i++) {
                     $nbName=($nbDisks < 1)?'':' '.$i;
                 ?>
-                    <div class="col-sm-3" style="min-height:300px">
+                    <div class="col-sm-3 hdsentinel-health-disk">
                             <div>
                                 <?php
                                     $hddCmd = $eqLogic->getCmd('info','Hard_Disk_Device'.$nbName);
@@ -188,7 +233,7 @@ $eqLogics = hdsentinel::byType('hdsentinel');
                                     if (is_object($descCmd)) {
                                 ?>
                                 <label class="control-label"><?= $descCmd->getName() ?></label>
-                                <span class="pull-right label label-info" data-cmd_id='<?= $descCmd->getId() ?>' data-unit='' style="white-space:break-spaces;word-break:break-word;"></span>
+                                <span class="pull-right label label-info hdsentinel-health-description" data-cmd_id='<?= $descCmd->getId() ?>' data-unit=''></span>
                                 <?php
                                     }
                                 ?>
@@ -213,7 +258,9 @@ $eqLogics = hdsentinel::byType('hdsentinel');
     <?php
     }
     ?>
+</div>
 
+<div class="table-responsive hdsentinel-health-table-wrap">
 <table class="table table-condensed tablesorter" id="table_healthHdsentinel">
 	<thead>
 		<tr>
@@ -267,15 +314,7 @@ foreach ($eqLogics as $eqLogic) {
 ?>
 	</tbody>
 </table>
-<script>
-    document.getElementById('accordionHdsentinel').addEventListener('click', function(event) {
-        if (event.target.classList.contains('history')) {
-            var cmdId = event.target.getAttribute('data-cmd_id');
-            jeeDialog.dialog({
-                id: 'md_cmdHistory',
-                title: "{{Historique}}",
-                contentUrl: 'index.php?v=d&modal=cmd.history&id=' + cmdId
-            })
-        }
-    });
-</script>
+</div>
+</div>
+
+<?php include_file('desktop', 'health', 'js', 'hdsentinel'); ?>

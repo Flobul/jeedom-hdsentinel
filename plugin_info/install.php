@@ -19,7 +19,7 @@
 require_once dirname(__FILE__) . '/../../../core/php/core.inc.php';
 
 function hdsentinel_install() {
-    message::add('hdsentinel', 'Cette mise à jour peut durer un certain temps : elle va stopper puis supprimer les cron actuels sur les appareils distants, puis renvoyer les scripts, installer les paquets le cron et le lancer.');
+    message::add('hdsentinel', __('Cette mise à jour peut durer un certain temps : elle va arrêter puis supprimer les tâches cron actuelles sur les appareils distants, renvoyer les scripts, installer les paquets puis relancer les tâches cron.', __FILE__));
     if (config::byKey('autoUpdateRemote', 'hdsentinel', false, true)) {
         foreach (eqLogic::byType('hdsentinel') as $eqLogic) {
            if (!$eqLogic->getConfiguration('windows', false) && !$eqLogic->getConfiguration('manually', false)) {
@@ -42,7 +42,7 @@ function hdsentinel_install() {
 }
 
 function hdsentinel_update() {
-    message::add('hdsentinel', 'Cette mise à jour peut durer un certain temps : elle va stopper puis supprimer les cron actuels sur les appareils distants, puis renvoyer les scripts, installer les paquets le cron et le lancer.');
+    message::add('hdsentinel', __('Cette mise à jour peut durer un certain temps : elle va arrêter puis supprimer les tâches cron actuelles sur les appareils distants, renvoyer les scripts, installer les paquets puis relancer les tâches cron.', __FILE__));
     if (config::byKey('autoUpdateRemote', 'hdsentinel', false, true)) {
         foreach (eqLogic::byType('hdsentinel') as $eqLogic) {
             if (!$eqLogic->getConfiguration('windows', false) && !$eqLogic->getConfiguration('manually', false)) {

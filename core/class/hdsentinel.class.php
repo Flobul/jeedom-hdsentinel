@@ -327,7 +327,7 @@ class hdsentinel extends eqLogic
             'Health' => __("Santé", __FILE__),
             'Lifetime_writes' => __("Écriture totale", __FILE__),
             'Performance' => __("Performance", __FILE__),
-            'Description' => __("Déscription", __FILE__),
+            'Description' => __("Description", __FILE__),
         );
         (array_key_exists($word, $translate)) ? $word = $translate[$word] : null;
         return $word;
