@@ -14,6 +14,8 @@
  * along with Jeedom. If not, see <http://www.gnu.org/licenses/>.
  */
 
+/* global buildSelectHost */
+
 document.getElementById('div_hdsentinel').addEventListener('click', function(event) {
     var _target = null
     if (_target = event.target.closest('#bt_hdsentinelDocumentation, .bt_hdsentinelDocumentation')) {
@@ -137,7 +139,7 @@ document.getElementById('div_hdsentinel').addEventListener('click', function(eve
         });
     }
     if (_target = event.target.closest('.hdsentinelAction[data-action=launchCron]')) {
-        var id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
+        const id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
         domUtils.ajax({
             type: "POST",
             url: "plugins/hdsentinel/core/ajax/hdsentinel.ajax.php",
@@ -164,7 +166,7 @@ document.getElementById('div_hdsentinel').addEventListener('click', function(eve
         });
     }
     if (_target = event.target.closest('.hdsentinelAction[data-action=removeCron]')) {
-        var id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
+        const id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
         domUtils.ajax({
             type: "POST",
             url: "plugins/hdsentinel/core/ajax/hdsentinel.ajax.php",
@@ -191,7 +193,7 @@ document.getElementById('div_hdsentinel').addEventListener('click', function(eve
         });
     }
     if (_target = event.target.closest('.hdsentinelAction[data-action=stopCron]')) {
-        var id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
+        const id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
         domUtils.ajax({
             type: "POST",
             url: "plugins/hdsentinel/core/ajax/hdsentinel.ajax.php",
@@ -223,7 +225,7 @@ document.getElementById('div_hdsentinel').addEventListener('click', function(eve
         document.querySelector('.eqLogicAction[data-action=save]').click();
     }
     if (_target = event.target.closest('.hdsentinelAction[data-action=test]')) {
-        var id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
+        const id = document.querySelector('.eqLogicAttr[data-l1key=id]').value;
         domUtils.ajax({
             type: "POST",
             url: "plugins/hdsentinel/core/ajax/hdsentinel.ajax.php",
@@ -398,7 +400,7 @@ function printEqLogic(_eqLogic) {
 
 function addCmdToTable(_cmd) {
 	if (!isset(_cmd)) {
-		var _cmd = {configuration: {}};
+		_cmd = {configuration: {}};
 	}
     if (!isset(_cmd.configuration)) {
         _cmd.configuration = {};

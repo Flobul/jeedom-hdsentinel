@@ -86,8 +86,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
                     $opacity = ($eqLogic->getIsEnable()) ? '' : 'disableCard';
 
                     echo '<div class="eqLogicDisplayCard cursor '.$opacity.'" data-eqLogic_id="' . $eqLogic->getId() . '">';
-                    echo '<span class="classinfoEqlogic label-info" style="margin-top:19px;" title="{{Nombre de disques}}">'.$nbDisks.'</span>';
-                    echo ($nbDisks < 1) ? '' : '<span class="classinfoEqlogic" style="margin-top:63px;background:'.$colorHealth.';" title="{{Santé (moyenne)}}">'.$pourcentHealth.' %</span>';
+                    echo '<span class="classinfoEqlogic label-info" style="margin-top:19px;" data-title="{{Nombre de disques}}">'.$nbDisks.'</span>';
+                    echo ($nbDisks < 1) ? '' : '<span class="classinfoEqlogic" style="margin-top:63px;background:'.$colorHealth.';" data-title="{{Santé (moyenne)}}">'.$pourcentHealth.' %</span>';
                     echo '<img src="' . $_plugin->getPathImgIcon() . '"/>';
                     echo '<br>';
                     echo '<span class="name">' . $eqLogic->getHumanName(true, true) . '</span>';
@@ -188,7 +188,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
                                         </select>
                                         <span class="input-group-btn">
-                                            <a class="btn btn-default cursor roundedRight sshmanagerHelper" data-helper="add" title="{{Ajouter un nouvel hôte}}">
+                                            <a class="btn btn-default cursor roundedRight sshmanagerHelper" data-helper="add" data-title="{{Ajouter un nouvel hôte}}">
                                                 <i class="fas fa-plus-circle"></i>
                                             </a>
                                         </span>
@@ -198,13 +198,13 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             
 							<div class="form-group">
 								<label class="col-sm-3 control-label">{{Auto-actualisation}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Fréquence de rafraîchissement du cron}}</br>{{Pensez à sauvegarder, puis Arrêter et supprimer le cron et Lancer.}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" data-title="{{Fréquence de rafraîchissement du cron}}</br>{{Pensez à sauvegarder, puis Arrêter et supprimer le cron et Lancer.}}"></i></sup>
 								</label>
 								<div class="col-sm-6">
 									<div class="input-group">
 										<input type="text" class="eqLogicAttr form-control roundedLeft" data-l1key="configuration" data-l2key="autorefresh" placeholder="{{Cliquer sur ? pour afficher l'assistant cron}}">
 										<span class="input-group-btn">
-											<a class="btn btn-default cursor jeeHelper roundedRight" data-helper="cron" title="Assistant cron">
+											<a class="btn btn-default cursor jeeHelper roundedRight" data-helper="cron" data-title="Assistant cron">
 												<i class="fas fa-question-circle"></i>
 											</a>
 										</span>
@@ -214,7 +214,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
 							<div class="form-group" style="display:none">
 								<label class="col-sm-3 control-label">{{Widget équipement}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Cochez la case pour utiliser le widget de l'appareil}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" data-title="{{Cochez la case pour utiliser le widget de l'appareil}}"></i></sup>
 								</label>
 								<div class="col-sm-7">
 									<input type="checkbox" class="eqLogicAttr form-control" id="widgetTemplate" data-l1key="configuration" data-l2key="widgetTemplate" />
@@ -222,7 +222,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group">
 								<label class="col-sm-3 control-label">{{Installation manuelle}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Cocher la case si vous installez manuellement le paquet HDSentinel (pas de cron, gestion via commande refresh)}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" data-title="{{Cocher la case si vous installez manuellement le paquet HDSentinel (pas de cron, gestion via commande refresh)}}"></i></sup>
 								</label>
 								<div class="col-sm-7">
 									<input type="checkbox" unchecked class="eqLogicAttr form-control" id="manually" data-l1key="configuration" data-l2key="manually" />
@@ -231,7 +231,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             
 							<div class="form-group">
 								<label class="col-sm-3 control-label">{{Windows}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Cochez cette case si l'appareil fait tourner HDSentinel sous Windows (voir la documentation pour l'installation)}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" data-title="{{Cochez cette case si l'appareil fait tourner HDSentinel sous Windows (voir la documentation pour l'installation)}}"></i></sup>
 								</label>
 								<div class="col-sm-7">
 									<input type="checkbox" unchecked class="eqLogicAttr form-control" id="windows" data-l1key="configuration" data-l2key="windows" />
@@ -240,7 +240,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 
 							<div class="form-group windows">
 								<label class="col-sm-4 control-label">{{Adresse IP}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Renseignez l'adresse IP}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" data-title="{{Renseignez l'adresse IP}}"></i></sup>
 								</label>
 								<div class="col-sm-5">
 									<input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="addressip" type="text" placeholder="{{saisir l'adresse IP}}">
@@ -249,7 +249,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
 							</div>
 							<div class="form-group windows">
 								<label class="col-sm-4 control-label">{{Port XML}}
-									<sup><i class="fas fa-question-circle tooltips" title="{{Renseignez le port SSH}}"></i></sup>
+									<sup><i class="fas fa-question-circle tooltips" data-title="{{Renseignez le port SSH}}"></i></sup>
 								</label>
 								<div class="col-sm-7">
 									<input class="eqLogicAttr form-control" data-l1key="configuration" data-l2key="portssh" type="text" placeholder="{{saisir le port SSH}}">
@@ -258,7 +258,7 @@ $eqLogics = eqLogic::byType($plugin->getId());
                             <div class="distant-password windows" style="display:none;">
                                 <div class="form-group">
                                     <label class="col-sm-4 control-label"> {{Mot de passe}}
-                                        <sup><i class="fas fa-question-circle tooltips" title="{{Renseignez le mot de passe}}"></i></sup>
+                                        <sup><i class="fas fa-question-circle tooltips" data-title="{{Renseignez le mot de passe}}"></i></sup>
                                     </label>
                                     <div class="col-sm-7 input-group">
                                         <input type="text" class="eqLogicAttr form-control inputPassword" data-l1key="configuration" data-l2key="password" />
