@@ -1,0 +1,7 @@
+{
+  "schema_version": 1,
+  "plugin_id": "hdsentinel",
+  "class_file": "core/class/hdsentinel.class.php",
+  "reference_version": "1.02.01",
+  "reference_commit": "1bde97de336fef4198ffd59f7bd4e843b2e9c990"
+}
