@@ -2,6 +2,7 @@
 
 ## Non publié
 
+- Ajout d’un accès natif à Community Jeedom avec diagnostic agrégé et anonymisé.
 ## Version 1.03.0 (14/10/2026)
 
 - Refonte de la structure du code afin d'améliorer sa lisibilité et sa maintenabilité.
