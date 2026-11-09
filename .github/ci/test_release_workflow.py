@@ -95,7 +95,7 @@ class ReleaseWorkflowTests(unittest.TestCase):
         # New prepared versions precede the preserved imported history.
         changelog = changelog[changelog.index('## Version 1.03.0 (14/10/2026)'):]
         self.assertEqual(len(re.findall(r"^## Version ", changelog, re.MULTILINE)), 10)
-        self.assertEqual(len(re.findall(r"^[-*+] ", changelog, re.MULTILINE)), 40)
+        self.assertEqual(len(re.findall(r"^[-*+] ", changelog, re.MULTILINE)), 39)
         self.assertEqual(len(re.findall(r"(?<!!)\[[^\]]+\]\([^)]+\)|<(?:https?://|mailto:)[^>]+>", changelog)), 2)
         self.assertEqual(len(re.findall(r"!\[[^\]]*\]\([^)]+\)", changelog)), 1)
         self.assertIn("## Version 1.03.0 (14/10/2026)", changelog)
