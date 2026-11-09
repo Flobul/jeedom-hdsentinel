@@ -13,14 +13,8 @@ $eqLogics = eqLogic::byType($plugin->getId());
 <div class="row row-overflow" id="div_hdsentinel">
 	<div class="col-xs-12 eqLogicThumbnailDisplay">
 		<legend><i class="fas fa-cog"></i> {{Gestion}}</legend>
-		<div class="eqLogicThumbnailContainer">
-            <?php if (version_compare((string) jeedom::version(), '4.4.0', '>=')) { ?>
-                <div class="cursor eqLogicAction logoSecondary" data-action="createCommunityPost" data-plugin_id="hdsentinel" role="button" tabindex="0" aria-label="{{Créer un sujet d'assistance sur Community Jeedom}}">
-                    <i class="fas fa-comments"></i>
-                    <br>
-                    <span style="color:var(--txt-color)">{{Community}}</span>
-                </div>
-            <?php } ?>
+		<div class="eqLogicThumbnailContainer hdsentinel-management">
+            <div class="hdsentinel-management-group hdsentinel-management-actions">
 			<div class="cursor eqLogicAction logoPrimary" data-action="add">
 				<i class="fas fa-plus-circle"></i>
 				<br>
@@ -54,9 +48,18 @@ $eqLogics = eqLogic::byType($plugin->getId());
             <div class="cursor pluginAction logoSecondary" data-action="openLocation" data-location="https://community.jeedom.com/tag/plugin-<?= $plugin->getId() ?>">
                 <i class="fas fa-thumbs-up icon_green"></i>
                 <br>
-                <span style="color:var(--txt-color)">{{Community}}</span>
+                <span style="color:var(--txt-color)">{{Forum}}</span>
             </div>
 		</div>
+            <?php if (version_compare((string) jeedom::version(), '4.4.0', '>=')) { ?>
+            <div class="hdsentinel-management-group hdsentinel-management-community">
+                <div class="cursor eqLogicAction logoSecondary" data-action="createCommunityPost" data-plugin_id="hdsentinel" role="button" tabindex="0" aria-label="{{Créer un sujet d'assistance sur Community Jeedom}}">
+                    <i class="fas fa-comments"></i><br>
+                    <span style="color:var(--txt-color)">{{Community}}</span>
+                </div>
+            </div>
+            <?php } ?>
+        </div>
 
 		<?php
             function printeqLogicThumbnailContainer($_plugin, $_eqLogics, $_type) {

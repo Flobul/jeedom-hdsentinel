@@ -92,6 +92,8 @@ class ReleaseWorkflowTests(unittest.TestCase):
 
     def test_changelog_reconciles_all_historical_sources(self):
         changelog = (ROOT / "docs" / "CHANGELOG.md").read_text(encoding="utf-8")
+        # New prepared versions precede the preserved imported history.
+        changelog = changelog[changelog.index('## Version 1.03.0 (14/10/2026)'):]
         self.assertEqual(len(re.findall(r"^## Version ", changelog, re.MULTILINE)), 10)
         self.assertEqual(len(re.findall(r"^[-*+] ", changelog, re.MULTILINE)), 40)
         self.assertEqual(len(re.findall(r"(?<!!)\[[^\]]+\]\([^)]+\)|<(?:https?://|mailto:)[^>]+>", changelog)), 2)

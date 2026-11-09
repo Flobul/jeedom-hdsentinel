@@ -20,36 +20,7 @@ require_once dirname(__FILE__) . '/../../../../core/php/core.inc.php';
 
 class hdsentinel extends eqLogic
 {
-
-    /**
-     * Return privacy-safe aggregate diagnostics for a Community support post.
-     */
-    public static function getConfigForCommunity($_separator = '<br>')
-    {
-        $equipments = eqLogic::byType(__CLASS__);
-        $enabled = 0;
-        $commands = 0;
-
-        foreach ($equipments as $equipment) {
-            if ((int) $equipment->getIsEnable() === 1) {
-                $enabled++;
-            }
-            $equipmentCommands = $equipment->getCmd();
-            $commands += is_array($equipmentCommands) ? count($equipmentCommands) : 0;
-        }
-
-        $lines = array(
-            '<!-- JEEDOM_PLUGIN_DIAGNOSTICS_START -->',
-            __('Équipements configurés', __FILE__) . ' : ' . count($equipments),
-            __('Équipements actifs', __FILE__) . ' : ' . $enabled,
-            __('Commandes configurées', __FILE__) . ' : ' . $commands,
-            '<!-- JEEDOM_PLUGIN_DIAGNOSTICS_END -->'
-        );
-
-        return implode($_separator, $lines) . $_separator;
-    }
-
-    public static $_hdsentinelVersion = '1.02.01';
+    public static $_hdsentinelVersion = '1.4.0';
     public static $_widgetPossibility = array('custom' => true);
 
     public static function getApiXmlResult($_xml, $_ip)
@@ -1247,4 +1218,66 @@ class hdsentinelCmd extends cmd
         }
         return true;
     }
+
+    public static function getConfigForCommunity($_separator = '<br>')
+    {
+        if (!is_string($_separator) || !in_array($_separator, array('<br>', '<br/>', '<br />', "\n"), true)) {
+            $_separator = '<br>';
+        }
+        $unknown = __('Inconnu', __FILE__);
+        $isTrue = static function ($value) { return in_array($value, array(true, 1, '1'), true); };
+        $isFalse = static function ($value) { return in_array($value, array(false, 0, '0'), true); };
+        $integer = static function ($value, $min, $max) {
+            if ((!is_int($value) && !is_string($value)) || preg_match('/^[0-9]{1,10}$/D', (string) $value) !== 1) {
+                return null;
+            }
+            $number = (int) $value;
+            return $number >= $min && $number <= $max ? $number : null;
+        };
+        $present = static function ($value) { return is_string($value) && trim($value) !== ''; };
+        $format = static function ($value, $kind, $args = array()) use ($unknown, $isTrue, $isFalse) {
+            switch ($kind) {
+                case 'bool':
+                    return $isTrue($value) ? __('Oui', __FILE__) : ($isFalse($value) ? __('Non', __FILE__) : $unknown);
+            }
+            return $unknown;
+        };
+        $equipments = eqLogic::byType(__CLASS__);
+        $equipments = is_array($equipments) ? $equipments : array();
+        $lines = array('<!-- JEEDOM_PLUGIN_DIAGNOSTICS_START -->', __('Équipements configurés', __FILE__) . ' : ' . count($equipments));
+        $total = 0;
+        $invalid = 0;
+        foreach ($equipments as $equipment) {
+            $items = array($equipment);
+            foreach ($items as $item) {
+                $value = $item->getConfiguration('windows', '');
+                if ($isTrue($value)) { $total++; } elseif (!$isTrue($value) && !$isFalse($value)) { $invalid++; }
+            }
+        }
+        $lines[] = __('Sources Windows XML', __FILE__) . ' : ' . ($invalid > 0 ? $unknown : (string) $total);
+        $total = 0;
+        $invalid = 0;
+        foreach ($equipments as $equipment) {
+            $items = array($equipment);
+            foreach ($items as $item) {
+                $value = $item->getConfiguration('windows', '');
+                if ($isFalse($value)) { $total++; } elseif (!$isTrue($value) && !$isFalse($value)) { $invalid++; }
+            }
+        }
+        $lines[] = __('Sources non Windows', __FILE__) . ' : ' . ($invalid > 0 ? $unknown : (string) $total);
+        $total = 0;
+        $invalid = 0;
+        foreach ($equipments as $equipment) {
+            $items = array($equipment);
+            foreach ($items as $item) {
+                $value = $item->getConfiguration('manually', '');
+                if ($isTrue($value)) { $total++; } elseif (!$isTrue($value) && !$isFalse($value)) { $invalid++; }
+            }
+        }
+        $lines[] = __('Sources manuelles', __FILE__) . ' : ' . ($invalid > 0 ? $unknown : (string) $total);
+        $lines[] = __('Mise à jour distante automatique', __FILE__) . ' : ' . $format(config::byKey('autoUpdateRemote', __CLASS__, ''), 'bool', array());
+        $lines[] = '<!-- JEEDOM_PLUGIN_DIAGNOSTICS_END -->';
+        return implode($_separator, $lines) . $_separator;
+    }
+
 }
